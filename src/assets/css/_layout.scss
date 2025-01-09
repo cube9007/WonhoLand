@@ -48,7 +48,7 @@
             display: flex;
             flex-direction: column;
             align-items: start;
-            top: -100%;
+            top: calc(var(--h4) * -2.2);
             p {
                 font-size: var(--h4);
                 font-weight: 400;
@@ -128,10 +128,17 @@
             width: 100%;
             position: absolute;
             top: 0;
-            left: 0;
-            padding: 150px 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0 auto;
+            padding: var(--paddingY) var(--paddingX);
+            
             .section1-img-face {
                 @include mask('section1-img.svg');
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 width: 160px;
                 height: 121px;
                 background-color: $primary_dark;
@@ -168,6 +175,9 @@
                 font-family: Pacifico;
                 font-size: var(--h2);
                 font-weight: 400;
+                text-align: center;
+                line-height: 130%;
+                margin-bottom: 20px;
             }
             div {
                 display: flex;
@@ -176,7 +186,7 @@
                 flex-direction: column;
                 p {
                     font-size: var(--h5);
-                    font-weight: 100;
+                    font-weight: 300;
                     line-height: 130%;
                     text-align: center;
                     display: flex;
@@ -201,7 +211,7 @@
             gap: 15px;
             p {
                 font-size: var(--p2);
-                font-weight: 100;
+                font-weight: 300;
                 line-height: 130%;
                 text-align: center;
             }

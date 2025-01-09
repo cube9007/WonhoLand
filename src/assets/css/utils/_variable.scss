@@ -6,6 +6,7 @@ $content-width-md: 900px;
 $content-width-sm: 600px;
 
 :root {
+    // fontSize
     --h1: 6vw; //120px
     --h2: 4.5vw; // 80px
     --h4: 2.5vw; // 50px
@@ -14,8 +15,46 @@ $content-width-sm: 600px;
     --p1: 28px;
     --p2: 20px;
 
+    // padding
+    --paddingX : 100px;
+    --paddingY : 150px;
+
+    // content
+    --content-width: 1400px;
 }
 
-@media (max-width: 1600px) {
-    
+@media (max-width: 1024px) {
+    :root {
+        // fontSize
+        --h1: 8vw; //120px
+        --h2: 5.5vw; // 80px
+        --h4: 3.5vw; // 50px
+        --h5: 3vw; // 40px
+        --h6: 2.3vw; // 30px
+        --p1: 24px;
+        --p2: 28px;
+        
+        // padding
+        --paddingX : 50px;
+
+        // content
+        --content-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        // fontSize
+        --h1: 9vw; //120px
+        --h2: 7vw; // 80px
+        --h4: 6vw; // 50px
+        --h5: 5vw; // 40px
+        --h6: 4vw; // 30px
+        --p1: 20px;
+        --p2: 14px;
+        
+        // padding
+        --paddingX : 20px;
+        --content-width: 100%;
+    }
 }

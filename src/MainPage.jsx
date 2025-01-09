@@ -34,16 +34,31 @@ const Section1 = () => {
         currentScroll = window.scrollY;
         let sectionScroll = currentScroll - window.innerHeight ;
         let sectionScrollRatio = sectionScroll / window.innerHeight * 100;
+        let sectionImgFace = document.querySelector('.section1-img-face');
         let sectionImg1 = document.querySelector('.after');
         let sectionImg2 = document.querySelector('.section1-content.duplicate');
         if (currentScroll < window.innerHeight) {
+            sectionImgFace.style.width = '0';
+            sectionImgFace.style.height = '0';
             sectionImg1.style.width = `0`;
             sectionImg1.style.height = `0`;
-        }
-        if (currentScroll > window.innerHeight && currentScroll < window.innerHeight * 2) {
-            sectionImg1.style.width = `${sectionScrollRatio}vw`;
-            sectionImg1.style.height = `${sectionScrollRatio * 1.78}vw`;
-            sectionImg2.style.maskSize = `${sectionScrollRatio}vw ${sectionScrollRatio * 1.748}vw`;
+            sectionImg2.style.maskSize = `0 0`;
+        }else if (currentScroll > window.innerHeight && currentScroll < window.innerHeight * 2) {
+            sectionImgFace.style.width = `${sectionScrollRatio/4 * 3 * 1.2 + 30}px`;
+            sectionImgFace.style.height = `${sectionScrollRatio/4 * 3 * 0.9 + 20}px`;
+            if(window.innerWidth / window.innerHeight > 1.33) {
+                sectionImg1.style.width = `${sectionScrollRatio * 1.1}vw`;
+                sectionImg1.style.height = `${sectionScrollRatio * 1.1 * 1.748}vw`;
+                sectionImg2.style.maskSize = `${sectionScrollRatio * 1.1 }vw ${sectionScrollRatio * 1.1 *  1.748}vw`;
+            } else {
+                sectionImg1.style.width = `${sectionScrollRatio / 1.748 * 2.33}vh`;
+                sectionImg1.style.height = `${sectionScrollRatio * 2.33}vh`;
+                sectionImg2.style.maskSize = `${sectionScrollRatio / 1.748 * 2.33}vh ${sectionScrollRatio * 2.33}vh`;
+            }
+        }else if (currentScroll > window.innerHeight * 2) {
+            sectionImg1.style.width = `110vw`;
+            sectionImg1.style.height = `188vw`;
+            sectionImg2.style.maskSize = `110vw 188vw`;
         }
     });
     return (
@@ -51,13 +66,13 @@ const Section1 = () => {
             <div className="section1">
                 <div className="section1-content original">
                     <div className="section1-title">
-                        <h2>The moment an idea becomes reality</h2>
+                        <h2>The moment an idea <br className="none-lg none-md"/> becomes reality</h2>
                         <div>
                             <p>아이디어가 현실이 되는 순간,</p>
                             <p><b className="wonho-box"/>가 함께합니다.</p>
                         </div>
                     </div>
-                    <div className="section1-img-face"/>
+                    {/* <div className="section1-img-face"/> */}
                     <div className="section1-desc">
                         마음속 상상이 빛이 될 때, 세상은 더 밝아집니다.
                         <p>
@@ -69,7 +84,7 @@ const Section1 = () => {
                 </div>
                 <div className="section1-content duplicate">
                     <div className="section1-title">
-                        <h2>The moment an idea becomes reality</h2>
+                        <h2>The moment an idea <br className="none-lg none-md"/> becomes reality</h2>
                         <div>
                             <p>아이디어가 현실이 되는 순간,</p>
                             <p><b className="wonho-box"/>가 함께합니다.</p>

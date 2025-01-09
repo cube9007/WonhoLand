@@ -233,19 +233,19 @@ body {
   border: 1px solid blue;
 }
 
-@media (max-width: 700px) {
-  .displayNone-sm {
+
+@media (min-width: 1025px) {
+  .none-lg {
     display: none;
-  }
-  .flex-sm {
-    display: flex;
   }
 }
-@media (min-width: 701px) {
-  .displayNone-lg {
+@media (min-width: 601px) and (max-width: 1024px) {
+  .none-md {
     display: none;
   }
-  .flex-lg {
-    display: flex;
+}
+@media (max-width: 600px) {
+  .none-sm {
+    display: none;
   }
 }
