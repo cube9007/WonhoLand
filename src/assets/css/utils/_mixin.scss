@@ -1,0 +1,14 @@
+@mixin mask($img) {
+    -webkit-mask-image: url("../image/" + $img);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: 0 0;
+  }
+  
+@mixin image($img) {
+    background-image: url('../image/' + $img);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  

@@ -1,0 +1,177 @@
+@use "./utils" as *;
+
+@keyframes bannerArrow {
+    0% {
+        margin-bottom: 0;
+    }
+    100% {
+        margin-bottom: 10px;
+    }
+}
+.main {
+    position: relative;
+}
+.main-banner-wrap {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    .bg {
+        @include image('main-banner.png');
+        width: 100%;
+        height: 100%;
+        background-attachment: fixed;
+        position: absolute;
+        top: 0;
+        left: 0;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(24, 0, 6, 0.4);
+        }
+    }
+    .title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: var(--h1);
+        font-weight: 900;
+        text-align: center;
+        white-space: nowrap;
+        div {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            top: -100%;
+            p {
+                font-size: var(--h4);
+                font-weight: 400;
+                b {
+                    font-size: bold;
+                }
+            }
+        }
+    }
+    .banner-arrow-wrap {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bannerArrow 0.8s infinite alternate;
+        animation-fill-mode: forwards;
+        transition: 0.5s;
+        cursor: pointer;
+        &:hover {
+            animation-play-state: paused;
+            .banner-arrow {
+                opacity: 0;
+                transition: 0.5s;
+                width: 55px !important;
+                height: 86px !important;
+            }
+            &::after {
+                opacity: 1;
+                transition: 0.5s;
+                width: 55px !important;
+                height: 86px !important;
+            }
+        }
+        .banner-arrow {
+            width: 45px;
+            height: 70px;
+            @include mask('banner-arrow.svg');
+            background-color: white;
+            transition: 0.5s;
+            opacity: 1;
+        }
+        &::after {
+            content: '';
+            width: 45px;
+            height: 70px;
+            position: absolute;
+            top: 0;
+            @include mask('banner-arrow-hover.svg');
+            background-color: white;
+            transition: 0.5s;
+            opacity: 0.01;
+        }
+    }
+}
+.main-banner-space {
+    // width: 100%;
+    // height: 100vh;
+}
+.section1-wrap {
+    width: 100%;
+    height: 200vh;
+    position: relative;
+    .section1 {
+        width: 100%;
+        height: 100vh;
+        background-color: $primary_dark;
+        position: sticky;
+        top: 0;
+        color: white;
+        padding: 150px 200px;
+        &-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            height: 100%;
+        }
+        &-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            h2 {
+                font-family: Pacifico;
+                font-size: var(--h2);
+                font-weight: 400;
+            }
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                p {
+                    font-size: var(--h5);
+                    font-weight: 100;
+                    line-height: 130%;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    .wonho-box {
+                        @include mask('wonho-box.svg');
+                        height: calc(var(--h5) * 1.2);
+                        width: calc(var(--h5) * 1.2 * 3.75);
+                        background-color: white;
+                    }
+                }
+            }
+        }
+        &-desc {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: var(--p1);
+            font-weight: 500;
+            gap: 15px;
+            p {
+                font-size: var(--p2);
+                font-weight: 100;
+                line-height: 130%;
+                text-align: center;
+            }
+        }
+    }
+}

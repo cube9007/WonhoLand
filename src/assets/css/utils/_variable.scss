@@ -1,0 +1,21 @@
+$primary : rgba(220, 49, 90, 1);
+$primary_dark: rgba(192, 32, 71, 1);
+
+$content-width: 1200px;
+$content-width-md: 900px;
+$content-width-sm: 600px;
+
+:root {
+    --h1: 6vw; //120px
+    --h2: 4.5vw; // 80px
+    --h4: 2.5vw; // 50px
+    --h5: 2vw; // 40px
+    --h6: 1.5vw; // 30px
+    --p1: 28px;
+    --p2: 20px;
+
+}
+
+@media (max-width: 1600px) {
+    
+}
