@@ -1,0 +1,30 @@
+$primary : rgb(38, 80, 183);
+$primary50 : rgb(38, 80, 183, 0.5);
+$primary_deep: rgb(43,138,255);
+$primary_dark : rgb(56,72,111);
+$primary_dark50 : rgb(56,72,111, 0.5);
+
+@mixin mask($img) {
+  mask-image: url("./" + $img);
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: 0 0;
+  -webkit-mask-image: url("./" + $img);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: 0 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 초기 로딩 시 스크롤 방지 */
+}
+
+#root {
+  // display: none;
+}
+
+
+
+
