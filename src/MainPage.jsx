@@ -11,12 +11,14 @@ const MainBanner = () => {
         <>
         <div className="main-banner-wrap" >
             <div className="bg"/>
-            <div className="title">
-                <div>
-                    <p><b>Wanna</b> create?</p>
-                    <p><b>Want a</b> how?</p>
+            <div className="title-wrap">
+                <div className="title">
+                    <div>
+                        <p><b>Wanna</b> create?</p>
+                        <p><b>Want a</b> how?</p>
+                    </div>
+                    WONHO make it Real
                 </div>
-                WONHO make it Real
             </div>
             <div className="banner-arrow-wrap" onClick={()=>{
                 window.scrollTo({top: window.innerHeight, behavior: 'smooth'});
@@ -56,9 +58,15 @@ const Section1 = () => {
                 sectionImg2.style.maskSize = `${sectionScrollRatio / 1.748 * 2.33}vh ${sectionScrollRatio * 2.33}vh`;
             }
         }else if (currentScroll > window.innerHeight * 2) {
-            sectionImg1.style.width = `110vw`;
-            sectionImg1.style.height = `188vw`;
-            sectionImg2.style.maskSize = `110vw 188vw`;
+            if(window.innerWidth / window.innerHeight > 1.33) {
+                sectionImg1.style.width = `110vw`;
+                sectionImg1.style.height = `188vw`;
+                sectionImg2.style.maskSize = `110vw 188vw`;
+            } else {
+                sectionImg1.style.width = 'calc(233 /1.748)vh';
+                sectionImg1.style.height = `233vh`;
+                sectionImg2.style.maskSize = `calc(233 /1.748)vh 233vh`;
+            }
         }
     });
     return (
