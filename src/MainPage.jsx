@@ -238,22 +238,24 @@ const MainPage = () => {
 
     useEffect(() => {
         if (isRunning) {
-            const interval = setInterval(() => {
-                setImageIndex(prevIndex => (prevIndex + 1) % images.length);
-            }, 50);
+            
 
             setTimeout(() => {
-                clearInterval(interval);
-                setIsRunning(false);
-                document.querySelector('.main-banner-wrap .title-wrap').style.opacity = '1';
-                document.querySelector('.main-banner-wrap .banner-arrow-wrap').style.opacity = '1';
-                document.querySelector('.header-wrap').style.opacity = '1';
-                // document.body.style.overflow='auto';
-            }, 25 * 50);
-
-            return () => {
-                clearInterval(interval);
-            };
+                const interval = setInterval(() => {
+                    setImageIndex(prevIndex => (prevIndex + 1) % images.length);
+                }, 50);
+                setTimeout(() => {
+                    clearInterval(interval);
+                    setIsRunning(false);
+                    document.querySelector('.main-banner-wrap .title-wrap').style.opacity = '1';
+                    document.querySelector('.main-banner-wrap .banner-arrow-wrap').style.opacity = '1';
+                    document.querySelector('.header-wrap').style.opacity = '1';
+                    // document.body.style.overflow='auto';
+                }, 25 * 50);
+                return () => {
+                    clearInterval(interval);
+                };
+            }, 500);
         }
     }, [isRunning, images.length]);
 
