@@ -8,6 +8,22 @@
         margin-bottom: 10px;
     }
 }
+body {
+    #loading {
+        opacity: 0;
+        transition: 0.5s;
+    }
+    &.before-load {
+        #loading {
+            display: flex;
+            opacity: 1;
+            
+        }
+        #root {
+            display: none;
+        }
+    }
+}
 .header-wrap {
     height: 80px;
     position: fixed;
@@ -15,7 +31,7 @@
     left: 0;
     width: 100%;
     background-color: rgb(0,0,0,0.0);
-    
+    opacity: 0;
     z-index: 100;
     display: flex;
     justify-content: center;
@@ -313,9 +329,9 @@
             }
             .section2-desc {
                 color: #444;
-                font-size: var(--p5);
+                font-size: var(--p4);
                 font-weight: 300;
-                line-height: 130%;
+                line-height: 160%;
                 b:last-child {
                     text-decoration: underline;
                 }
