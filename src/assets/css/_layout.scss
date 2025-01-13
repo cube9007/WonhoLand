@@ -189,3 +189,80 @@
         
     }
 }
+
+.section2-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--paddingY) var(--paddingX);
+    background-color: rgb(var(--primary_value),0.04);
+    .section2 {
+        display: flex;
+        gap: var(--h3);
+        .section2-profile-img {
+            @include image('profile-img.png');
+            width: 236px;
+            height: 320px;
+            @media (max-width: 1024px) {
+                width: 212px;
+                height: 288px;
+            }
+            @media (max-width: 600px) {
+                width: 165px;
+                height: 224px;
+            }
+        }
+        .section2-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--h5);
+            padding-top: var(--h5);
+            .section2-title {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                div {
+                    font-size: var(--p2);
+                    font-weight: 700;
+                    color: rgb(var(--primary_value), 0.5);
+                    b {
+                        color: $primary;
+                        font-weight: 900;
+                    }
+                }
+                h5 {
+                    font-size: var(--h5);
+                    font-weight: 700;
+                    b {
+                        color: $primary;
+                        font-weight: 800;
+                    }
+                }
+            }
+            .section2-tag {
+                display: flex;
+                gap: var(--10px);
+                flex-direction: row;
+                flex-wrap: wrap;
+                div {
+                    font-size: var(--p5);
+                    padding: var(--8px) var(--20px);
+                    border: 1px solid black;
+                    border-radius: 50px;
+                    color: black;
+                    background-color: white;
+                }
+            }
+            .section2-desc {
+                color: #444;
+                font-size: var(--p4);
+                font-weight: 300;
+                line-height: 130%;
+                b:last-child {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

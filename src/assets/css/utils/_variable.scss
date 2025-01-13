@@ -6,14 +6,21 @@ $content-width-md: 900px;
 $content-width-sm: 600px;
 
 :root {
+    // color
+    --primary_value : 220, 49, 90;
+
     // fontSize
     --h1: 6vw; //120px
     --h2: 4.5vw; // 80px
+    --h3: 3.5vw; // 50px
     --h4: 2.5vw; // 50px
     --h5: 2vw; // 40px
     --h6: 1.5vw; // 30px
     --p1: 28px;
-    --p2: 20px;
+    --p2: 24px;
+    --p3: 22px;
+    --p4: 20px;
+    --p5: 16px;
 
     // padding
     --paddingX : 100px;
@@ -21,6 +28,12 @@ $content-width-sm: 600px;
 
     // content
     --content-width: 1400px;
+
+    // px
+    --8px: 8px;
+    --10px: 10px;
+    --20px: 20px;
+    --30px: 30px;
 }
 
 @media (max-width: 1024px) {
@@ -28,17 +41,26 @@ $content-width-sm: 600px;
         // fontSize
         --h1: 8vw; //120px
         --h2: 5.5vw; // 80px
+        --h3: 4.5vw; // 50px
         --h4: 3.5vw; // 50px
         --h5: 3vw; // 40px
         --h6: 2.3vw; // 30px
         --p1: 24px;
-        --p2: 28px;
-        
+        --p2: 22px;
+        --p3: 20px;
+        --p4: 18px;
+        --p5: 14px;
         // padding
         --paddingX : 50px;
 
         // content
         --content-width: 100%;
+
+        // px
+        --8px: 7px;
+        --10px: 9px;
+        --20px: 18px;
+        --30px: 27px;
     }
 }
 
@@ -47,14 +69,24 @@ $content-width-sm: 600px;
         // fontSize
         --h1: 9vw; //120px
         --h2: 7vw; // 80px
+        --h3: 6.5vw; // 50px
         --h4: 6vw; // 50px
         --h5: 5vw; // 40px
         --h6: 4vw; // 30px
-        --p1: 20px;
-        --p2: 14px;
+        --p1: 22px;
+        --p2: 20px;
+        --p3: 18px;
+        --p4: 16px;
+        --p5: 14px;
         
         // padding
         --paddingX : 20px;
         --content-width: 100%;
+
+        // px
+        --8px: 6px;
+        --10px: 8px;
+        --20px: 16px;
+        --30px: 24px;
     }
 }
