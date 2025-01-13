@@ -45,18 +45,6 @@ const Header = () => {
         }
     });
 
-    const [isRunning, setIsRunning] = useState(true);
-    useEffect(() => {
-        if (isRunning) {
-            setTimeout(() => {
-                setIsRunning(false);
-                document.querySelector('.header-wrap').style.opacity = '1';
-                // document.body.style.overflow='auto';
-            }, 25 * 46);
-            return ;
-        };
-    }, [isRunning]);
-    
     return (
         <div className={`header-wrap ${scrolled ? 'scrolled' : ''} ${changed ? 'changed' : ''}`}>
             <div className="header">
@@ -65,32 +53,8 @@ const Header = () => {
         </div>
     )
 }
-const images = [mainBannerImg1, mainBannerImg2, mainBannerImg3, mainBannerImg4, mainBannerImg5, mainBannerImg6, mainBannerImg7, mainBannerImg8, mainBannerImg9, mainBannerImg10, mainBannerImg11, mainBannerImg12, mainBannerImg13, mainBannerImg14, mainBannerImg15, mainBannerImg16, mainBannerImg17, mainBannerImg18, mainBannerImg19, mainBannerImg20, mainBannerImg21, mainBannerImg22, mainBannerImg23, mainBannerImg24, mainBannerImg25, mainBannerImg26];
-const MainBanner = () => {
-    
-    let [imagesIndex, setImageIndex] = useState(0);
-    const [isRunning, setIsRunning] = useState(true);
-    useEffect(() => {
-        if (isRunning) {
-            const interval = setInterval(() => {
-                setImageIndex(prevIndex => (prevIndex + 1) % images.length);
-            }, 46);
-    
-            setTimeout(() => {
-                clearInterval(interval);
-                setIsRunning(false);
-                document.querySelector('.main-banner-wrap .title-wrap').style.opacity = '1';
-                document.querySelector('.main-banner-wrap .banner-arrow-wrap').style.opacity = '1';
-                // document.body.style.overflow='auto';
-            }, 25 * 46);
-            
-            
-            return () => {
-                clearInterval(interval);
-            };
-        };
-    }, [isRunning, images.length]);
 
+const MainBanner = ({images, imagesIndex}) => {
     window.addEventListener('scroll', () => {
         if(window.scrollY > window.innerHeight) {
             document.querySelector('.main-banner-wrap .bg').style.display = 'none';
@@ -241,10 +205,14 @@ const Section3 = () => {
     )
 }
 const MainPage = () => {
+    const images = [mainBannerImg1, mainBannerImg2, mainBannerImg3, mainBannerImg4, mainBannerImg5, mainBannerImg6, mainBannerImg7, mainBannerImg8, mainBannerImg9, mainBannerImg10, mainBannerImg11, mainBannerImg12, mainBannerImg13, mainBannerImg14, mainBannerImg15, mainBannerImg16, mainBannerImg17, mainBannerImg18, mainBannerImg19, mainBannerImg20, mainBannerImg21, mainBannerImg22, mainBannerImg23, mainBannerImg24, mainBannerImg25, mainBannerImg26];
+
+    let [imagesIndex, setImageIndex] = useState(0);
+    const [isRunning, setIsRunning] = useState(false);
+
     useEffect(() => {
         const handleLoad = () => {
             document.body.classList.remove('before-load');
-            console.log('loaded');
             const loadingElement = document.querySelector('#loading');
             if (loadingElement) {
                 loadingElement.addEventListener('transitionend', () => {
@@ -257,9 +225,10 @@ const MainPage = () => {
 
         if (document.readyState === 'complete') {
             handleLoad();
+            setIsRunning(true);
         } else {
             window.addEventListener('load', handleLoad);
-
+            setIsRunning(true);
             // Cleanup event listener on component unmount
             return () => {
                 window.removeEventListener('load', handleLoad);
@@ -267,10 +236,31 @@ const MainPage = () => {
         }
     }, []);
 
+    useEffect(() => {
+        if (isRunning) {
+            const interval = setInterval(() => {
+                setImageIndex(prevIndex => (prevIndex + 1) % images.length);
+            }, 50);
+
+            setTimeout(() => {
+                clearInterval(interval);
+                setIsRunning(false);
+                document.querySelector('.main-banner-wrap .title-wrap').style.opacity = '1';
+                document.querySelector('.main-banner-wrap .banner-arrow-wrap').style.opacity = '1';
+                document.querySelector('.header-wrap').style.opacity = '1';
+                // document.body.style.overflow='auto';
+            }, 25 * 50);
+
+            return () => {
+                clearInterval(interval);
+            };
+        }
+    }, [isRunning, images.length]);
+
     return (
         <div className='main'>
             <Header />
-            <MainBanner />
+            <MainBanner images={images} imagesIndex={imagesIndex}/>
             <Section1 />
             <Section2 />
             <Section3 />
