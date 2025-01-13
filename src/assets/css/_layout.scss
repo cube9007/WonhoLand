@@ -16,6 +16,7 @@
     height: 100vh;
     position: relative;
     @include image('main-banner.png');
+    background-attachment: fixed;
     .title-wrap {
         width: 100%;
         height: 100%;
@@ -89,10 +90,7 @@
         }
     }
 }
-.main-banner-space {
-    // width: 100%;
-    // height: 100vh;
-}
+
 .section1-wrap {
     width: 100%;
     height: 200vh;
@@ -165,41 +163,27 @@
                 line-height: 130%;
                 margin-bottom: 20px;
             }
-            div {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                p {
-                    font-size: var(--h5);
-                    font-weight: 300;
-                    line-height: 130%;
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    .wonho-box {
-                        @include mask('wonho-box.svg');
-                        height: calc(var(--h5) * 1.2);
-                        width: calc(var(--h5) * 1.2 * 3.75);
-                        background-color: white;
-                    }
-                }
-            }
+            
         }
         &-desc {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            font-size: var(--h6);
-            font-weight: 500;
-            gap: 15px;
             p {
-                font-size: var(--p2);
+                font-size: var(--h5);
                 font-weight: 300;
                 line-height: 130%;
                 text-align: center;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .wonho-box {
+                    @include mask('wonho-box.svg');
+                    height: calc(var(--h5) * 1.2);
+                    width: calc(var(--h5) * 1.2 * 3.75);
+                    background-color: white;
+                }
             }
         }
         

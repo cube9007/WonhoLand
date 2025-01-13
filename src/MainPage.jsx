@@ -75,36 +75,23 @@ const Section1 = () => {
                 <div className="section1-content original">
                     <div className="section1-title">
                         <h2>The moment an idea <br className="none-lg none-md"/> becomes reality</h2>
-                        <div>
-                            <p>아이디어가 현실이 되는 순간,</p>
-                            <p><b className="wonho-box"/>가 함께합니다.</p>
-                        </div>
+                        
                     </div>
                     {/* <div className="section1-img-face"/> */}
                     <div className="section1-desc">
-                        마음속 상상이 빛이 될 때, 세상은 더 밝아집니다.
-                        <p>
-                            아이디어는 세상을 변화시킬 가능성을 품고 있습니다. <br/>
-                            상상하는 모든 것을 현실로 만들어갑니다.
-                        </p>
+                        <p>아이디어가 현실이 되는 순간,</p>
+                        <p><b className="wonho-box"/>가 함께합니다.</p>
                     </div>
                     <div className="after" />
                 </div>
                 <div className="section1-content duplicate">
                     <div className="section1-title">
                         <h2>The moment an idea <br className="none-lg none-md"/> becomes reality</h2>
-                        <div>
-                            <p>아이디어가 현실이 되는 순간,</p>
-                            <p><b className="wonho-box"/>가 함께합니다.</p>
-                        </div>
                     </div>
                     <div className="section1-img-face"/>
                     <div className="section1-desc">
-                        마음속 상상이 빛이 될 때, 세상은 더 밝아집니다.
-                        <p>
-                            아이디어는 세상을 변화시킬 가능성을 품고 있습니다. <br/>
-                            상상하는 모든 것을 현실로 만들어갑니다.
-                        </p>
+                        <p>아이디어가 현실이 되는 순간,</p>
+                        <p><b className="wonho-box"/>가 함께합니다.</p>
                     </div>
                 </div>
             </div>
@@ -114,8 +101,11 @@ const Section1 = () => {
 
 const Section2 = () => {
     return (
-        <>
-        </>
+        <div className="section2-wrap">
+            <div className="section2">
+                
+            </div>
+        </div>
     )
 }
 const MainPage = () => {
