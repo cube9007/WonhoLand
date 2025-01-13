@@ -1,9 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Logo } from "./component";
+import mainBannerImg1 from './assets/image/main-banner/1.webp';
+import mainBannerImg2 from './assets/image/main-banner/2.webp';
+import mainBannerImg3 from './assets/image/main-banner/3.webp';
+import mainBannerImg4 from './assets/image/main-banner/4.webp';
+import mainBannerImg5 from './assets/image/main-banner/5.webp';
+import mainBannerImg6 from './assets/image/main-banner/6.webp';
+import mainBannerImg7 from './assets/image/main-banner/7.webp';
+import mainBannerImg8 from './assets/image/main-banner/8.webp';
+import mainBannerImg9 from './assets/image/main-banner/9.webp';
+import mainBannerImg10 from './assets/image/main-banner/10.webp';
+import mainBannerImg11 from './assets/image/main-banner/11.webp';
+import mainBannerImg12 from './assets/image/main-banner/12.webp';
+import mainBannerImg13 from './assets/image/main-banner/13.webp';
+import mainBannerImg14 from './assets/image/main-banner/14.webp';
+import mainBannerImg15 from './assets/image/main-banner/15.webp';
+import mainBannerImg16 from './assets/image/main-banner/16.webp';
+import mainBannerImg17 from './assets/image/main-banner/17.webp';
+import mainBannerImg18 from './assets/image/main-banner/18.webp';
+import mainBannerImg19 from './assets/image/main-banner/19.webp';
+import mainBannerImg20 from './assets/image/main-banner/20.webp';
+import mainBannerImg21 from './assets/image/main-banner/21.webp';
+import mainBannerImg22 from './assets/image/main-banner/22.webp';
+import mainBannerImg23 from './assets/image/main-banner/23.webp';
+import mainBannerImg24 from './assets/image/main-banner/24.webp';
+import mainBannerImg25 from './assets/image/main-banner/25.webp';
+import mainBannerImg26 from './assets/image/main-banner/26.webp';
 
-const Header = ({currentScroll}) => {
+const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [changed, setChanged] = useState(false);
+    let currentScroll = window.scrollY;
     window.addEventListener('scroll', () => {
         currentScroll = window.scrollY;
         if (currentScroll > 0) {
@@ -28,10 +55,42 @@ const Header = ({currentScroll}) => {
 }
   
 const MainBanner = () => {
+    const images = [mainBannerImg1, mainBannerImg2, mainBannerImg3, mainBannerImg4, mainBannerImg5, mainBannerImg6, mainBannerImg7, mainBannerImg8, mainBannerImg9, mainBannerImg10, mainBannerImg11, mainBannerImg12, mainBannerImg13, mainBannerImg14, mainBannerImg15, mainBannerImg16, mainBannerImg17, mainBannerImg18, mainBannerImg19, mainBannerImg20, mainBannerImg21, mainBannerImg22, mainBannerImg23, mainBannerImg24, mainBannerImg25, mainBannerImg26];
+    let [imagesIndex, setImageIndex] = useState(0);
+    const [isRunning, setIsRunning] = useState(true);
+    useEffect(() => {
+        if (isRunning) {
+            const interval = setInterval(() => {
+                setImageIndex(prevIndex => (prevIndex + 1) % images.length);
+            }, 46);
+    
+            setTimeout(() => {
+                clearInterval(interval);
+                setIsRunning(false);
+                document.querySelector('.main-banner-wrap .title-wrap').style.opacity = '1';
+                document.querySelector('.main-banner-wrap .banner-arrow-wrap').style.opacity = '1';
+                // document.body.style.overflow='auto';
+            }, 25 * 46);
+            
+            
+            return () => {
+                clearInterval(interval);
+            };
+        };
+    }, [isRunning, images.length]);
+
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > window.innerHeight) {
+            document.querySelector('.main-banner-wrap .bg').style.display = 'none';
+        } else {
+            document.querySelector('.main-banner-wrap .bg').style.display = 'block';
+        }
+    });
+
     return (
         <>
         <div className="main-banner-wrap" >
-            <div className="bg"/>
+            <img className="bg" src={images[imagesIndex]} />
             <div className="title-wrap">
                 <div className="title">
                     <div>
@@ -52,8 +111,8 @@ const MainBanner = () => {
 }
 
 // 메세지 영역 idea becomes reality
-const Section1 = ({currentScroll}) => {
-    
+const Section1 = () => {
+    let currentScroll = window.scrollY;
     window.addEventListener('scroll', () => {
         currentScroll = window.scrollY;
         let sectionScroll = currentScroll - window.innerHeight ;
@@ -126,7 +185,9 @@ const Section2 = () => {
     return (
         <div className="section2-wrap">
             <div className="section2 md-column sm-column">
-                <div className="section2-profile-img"/>
+                <div className="section2-profile-img-wrap">
+                    <div className="section2-profile-img"/>
+                </div>
                 <div className="section2-content">
                     <div className="section2-title">
                         <div>About <b>WONHO</b></div>
@@ -159,14 +220,23 @@ const Section2 = () => {
         </div>
     )
 }
+
+const Section3 = () => {
+    return (
+        <div className="section3-wrap">
+
+        </div>
+    )
+}
 const MainPage = () => {
-    let currentScroll = window.scrollY;
+    
     return (
         <div className='main'>
-            <Header currentScroll={currentScroll}/>
+            <Header />
             <MainBanner />
-            <Section1 currentScroll={currentScroll}/>
+            <Section1 />
             <Section2 />
+            <Section3 />
         </div>
     )
 }

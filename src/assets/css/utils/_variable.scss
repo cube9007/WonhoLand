@@ -1,4 +1,7 @@
-$primary : rgba(220, 49, 90, 1);
+$primary : rgb(220, 49, 90);
+// $primary_04p: #FEF7F9;
+$primary_light: rgb(255, 195, 209);
+$primary_04p: rgb(254, 247, 249);
 $primary_dark: rgba(192, 32, 71, 1);
 
 $content-width: 1600px;
@@ -23,6 +26,7 @@ $content-width: 1600px;
     // padding
     --paddingX : 100px;
     --paddingY : 150px;
+    --stickyY: 150px;
 
     // content
     --content-width: 1400px;
@@ -50,7 +54,7 @@ $content-width: 1600px;
         --p5: 14px;
         // padding
         --paddingX : 50px;
-
+        --stickyY: 100px;
         // content
         --content-width: 100%;
 
@@ -79,6 +83,8 @@ $content-width: 1600px;
         
         // padding
         --paddingX : 20px;
+        --stickyY: 70px;
+
         --content-width: 100%;
 
         // px
