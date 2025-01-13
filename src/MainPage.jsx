@@ -1,7 +1,28 @@
-const Header = () => {
+import { useState } from "react";
+import { Logo } from "./component";
+
+const Header = ({currentScroll}) => {
+    const [scrolled, setScrolled] = useState(false);
+    const [changed, setChanged] = useState(false);
+    window.addEventListener('scroll', () => {
+        currentScroll = window.scrollY;
+        if (currentScroll > 0) {
+            setScrolled(true);
+        } else {
+            setScrolled(false);
+        }
+        if (currentScroll > window.innerHeight * 1.3) {
+            setChanged(true);
+        } else {
+            setChanged(false);
+        }
+    });
+
     return (
-        <div>
-        
+        <div className={`header-wrap ${scrolled ? 'scrolled' : ''} ${changed ? 'changed' : ''}`}>
+            <div className="header">
+                <Logo primary={changed}/>
+            </div>
         </div>
     )
 }
@@ -31,8 +52,8 @@ const MainBanner = () => {
 }
 
 // 메세지 영역 idea becomes reality
-const Section1 = () => {
-    let currentScroll = window.scrollY;
+const Section1 = ({currentScroll}) => {
+    
     window.addEventListener('scroll', () => {
         currentScroll = window.scrollY;
         let sectionScroll = currentScroll - window.innerHeight ;
@@ -139,12 +160,12 @@ const Section2 = () => {
     )
 }
 const MainPage = () => {
-
+    let currentScroll = window.scrollY;
     return (
         <div className='main'>
-            <Header />
+            <Header currentScroll={currentScroll}/>
             <MainBanner />
-            <Section1 />
+            <Section1 currentScroll={currentScroll}/>
             <Section2 />
         </div>
     )
