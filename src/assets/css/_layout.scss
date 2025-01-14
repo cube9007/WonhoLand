@@ -45,11 +45,35 @@ body {
     }
     .header {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         height: 100%;
         flex-grow: 1;
-        
+        width: 100%;
+        max-width: $content-width;
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            p {
+                font-size: var(--p5);
+                font-weight: 500;
+                color: white;
+                cursor: pointer;
+                &:hover {
+                    color: $primary !important;
+                }
+            }
+        }
+    }
+    &.changed {
+        .header {
+            .menu {
+                p {
+                    color: $primary_dark;
+                }
+            }
+        }
     }
 }
 
