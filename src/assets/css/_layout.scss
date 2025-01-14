@@ -65,7 +65,15 @@ body {
         top: 0;
         left: 0;
         z-index: -1;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         object-fit: cover;
+        // @for $i from 1 to 25 {
+        //     &.bg#{$i} {
+        //         @include image('main-banner/#{$i}.webp');
+        //     }
+        // }
     }
     .title-wrap {
         width: 100%;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Logo } from "./component";
 import mainBannerImg1 from './assets/image/main-banner/1.webp';
 import mainBannerImg2 from './assets/image/main-banner/2.webp';
@@ -54,7 +54,27 @@ const Header = () => {
     )
 }
 
-const MainBanner = ({images, imagesIndex}) => {
+const MainBanner = () => {
+    const [currentimgUrl, setCurrentimgUrl] = useState(mainBannerImg1);
+    const imagesUrl = [mainBannerImg1, mainBannerImg2, mainBannerImg3, mainBannerImg4, mainBannerImg5, mainBannerImg6, mainBannerImg7, mainBannerImg8, mainBannerImg9, mainBannerImg10, mainBannerImg11, mainBannerImg12, mainBannerImg13, mainBannerImg14, mainBannerImg15, mainBannerImg16, mainBannerImg17, mainBannerImg18, mainBannerImg19, mainBannerImg20, mainBannerImg21, mainBannerImg22, mainBannerImg23, mainBannerImg24, mainBannerImg25, mainBannerImg26];
+    
+    let i = 0;
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentimgUrl(imagesUrl[i]);
+            i++;
+            if (i > imagesUrl.length) {
+                return;
+            }
+        }, 50);
+        setTimeout(() => {
+            clearInterval(interval);
+        }, 25 * 50);
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
     window.addEventListener('scroll', () => {
         if(window.scrollY > window.innerHeight) {
             document.querySelector('.main-banner-wrap .bg').style.display = 'none';
@@ -62,11 +82,14 @@ const MainBanner = ({images, imagesIndex}) => {
             document.querySelector('.main-banner-wrap .bg').style.display = 'block';
         }
     });
-
+    // let bgCanvas = document.querySelector('#bg-video-canvas').getContext('2d');
+    // if (bgCanvas) {
+    //     bgCanvas.drawImage(images[0], 0, 0);
+    // }
     return (
         <>
         <div className="main-banner-wrap" >
-            <img className="bg" src={images[imagesIndex]} />
+            <img className="bg" src={currentimgUrl} />
             <div className="title-wrap">
                 <div className="title">
                     <div>
@@ -204,15 +227,13 @@ const Section3 = () => {
         </div>
     )
 }
+
+
 const MainPage = () => {
-    const images = [mainBannerImg1, mainBannerImg2, mainBannerImg3, mainBannerImg4, mainBannerImg5, mainBannerImg6, mainBannerImg7, mainBannerImg8, mainBannerImg9, mainBannerImg10, mainBannerImg11, mainBannerImg12, mainBannerImg13, mainBannerImg14, mainBannerImg15, mainBannerImg16, mainBannerImg17, mainBannerImg18, mainBannerImg19, mainBannerImg20, mainBannerImg21, mainBannerImg22, mainBannerImg23, mainBannerImg24, mainBannerImg25, mainBannerImg26];
-
-    let [imagesIndex, setImageIndex] = useState(0);
-    const [isRunning, setIsRunning] = useState(false);
-
     useEffect(() => {
         const handleLoad = () => {
             document.body.classList.remove('before-load');
+            // 로딩 화면 DOM에서 제거
             const loadingElement = document.querySelector('#loading');
             if (loadingElement) {
                 loadingElement.addEventListener('transitionend', () => {
@@ -235,34 +256,29 @@ const MainPage = () => {
             };
         }
     }, []);
-
+    const [isRunning, setIsRunning] = useState(false);
     useEffect(() => {
         if (isRunning) {
-            
-
+            document.querySelector('#root').style.display = 'block';
             setTimeout(() => {
-                const interval = setInterval(() => {
-                    setImageIndex(prevIndex => (prevIndex + 1) % images.length);
-                }, 50);
-                setTimeout(() => {
-                    clearInterval(interval);
-                    setIsRunning(false);
-                    document.querySelector('.main-banner-wrap .title-wrap').style.opacity = '1';
-                    document.querySelector('.main-banner-wrap .banner-arrow-wrap').style.opacity = '1';
-                    document.querySelector('.header-wrap').style.opacity = '1';
-                    // document.body.style.overflow='auto';
-                }, 25 * 50);
-                return () => {
-                    clearInterval(interval);
-                };
-            }, 500);
+                document.body.style.overflow = 'auto';
+                setIsRunning(false);
+                document.querySelector('.main-banner-wrap .title-wrap').style.opacity = '1';
+                document.querySelector('.main-banner-wrap .banner-arrow-wrap').style.opacity = '1';
+                document.querySelector('.header-wrap').style.opacity = '1';
+                // document.body.style.overflow='auto';
+            }, 25 * 50);
+            return () => {
+            };
         }
-    }, [isRunning, images.length]);
+    }, [isRunning]);
+
+
 
     return (
         <div className='main'>
             <Header />
-            <MainBanner images={images} imagesIndex={imagesIndex}/>
+            <MainBanner />
             <Section1 />
             <Section2 />
             <Section3 />
