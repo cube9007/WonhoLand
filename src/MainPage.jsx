@@ -1,6 +1,17 @@
 import { useEffect, useState } from "react";
 import { Logo } from "./component";
 import bgVideo from './assets/image/bgVideo.mp4';
+import samsungImg from './assets/image/samsung.png';
+import skImg from './assets/image/sk.png';
+import dongaImg from './assets/image/donga.png';
+import asanImg from './assets/image/asan.png';
+import ajImg from './assets/image/aj.png';
+import tourImg from './assets/image/tour.png';
+import edulimeImg from './assets/image/edulime.png';
+import vizendImg from './assets/image/vizend.png';
+import ndsImg from './assets/image/nds.png';
+import nomadianImg from './assets/image/nomadian.png';
+import namoosoriImg from './assets/image/namoosori.png';
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -283,19 +294,19 @@ const Section5 = () => {
                         </div>
                         <div className="contents">
                             <div className="project">
-                                <p className="name">삼성 E&A (2022.03 ~ 2024.10)</p>
-                                <pre className="desc">
-{`•  참여 프로젝트 : 세부 프로젝트 4개, 총 7개 사이트
-•  업무 내용 (기여도 75%)
-    : 신규페이지 및 수정
-    : Figma 스타일가이드, UI 컴포넌트 정리 
-    : Mui, Ag-Grid, Chart.js 등 라이브러리 커스텀
-    : SCSS, Utility Class 사용
-•  기여항목 
-    : 퍼블 적용이 안될 시 개발계 직접 접근 
-    : 고객이 원하는 형태의 UI 라이브러리가 없는 경우 직접 구현
-    (라이브러리 없이 캘린더 UI 구현 및 커스텀)`}
-                                </pre>
+                                <p className="name"><img src={samsungImg}/> <p>2022.09 ~ 2024.10</p></p>
+                                <p className="summary">엔지니어 벤더사 관리 웹 </p>
+                                <p className="desc">
+                                •  업무 내용 (기여도 80%) <br/>
+                                &nbsp; &nbsp; : 신규페이지 및 수정<br/>
+                                &nbsp; &nbsp; : Figma 스타일가이드, UI 컴포넌트 정리 <br/>
+                                &nbsp; &nbsp; : Mui, Ag-Grid, Chart.js 등 라이브러리 커스텀<br/>
+                                &nbsp; &nbsp; : SCSS, Utility Class 사용<br/>
+                                •  특이사항항 <br/>
+                                &nbsp; &nbsp; : 퍼블 적용이 안될 시 개발계 직접 접근 <br/>
+                                &nbsp; &nbsp; : 고객이 원하는 형태의 UI 라이브러리가 없는 경우 직접 구현<br/>
+                                &nbsp; &nbsp; (라이브러리 없이 캘린더 UI 구현 및 커스텀)
+                                </p>
                                 <div className="tool">
                                     Tools
                                     <div className="icon">
@@ -313,21 +324,76 @@ const Section5 = () => {
                                 </div>
                             </div>
                             <div className="project">
-                                <p className="name">SK (2022.09 ~ 2024.06)</p>
-                                <pre className="desc">
-{`•  참여 프로젝트 : 세부 프로젝트 1개
-•  업무 내용 (기여도 60%)
-    : 신규페이지 및 수정 
-    : React, Mui, Ag-Grid 활용, 추가 페이지 작업
-    : 기타 이벤트 페이지, 및 메일 폼 작업
-•  기여항목 
-    : 성적 및 채점 페이지 등 포멀하지 않은 페이지 작업
-    : 개발계 원격 작업 지원
-•  사용 툴
-    커뮤니케이션 :  피그마, PPT, Git
-    디자인 : 피그마, 포토샵, 일러스트
-    퍼블리싱 : HTML, CSS, SCSS, React, TypeScript`}
-                                </pre>
+                                <p className="name"><img src={edulimeImg}/> <p>(2024.07 ~ 2024.10)</p></p>
+                                <p className="summary">대학 LMS 개발 템플릿 </p>
+                                <p className="desc">
+                                •  업무 내용 (기여도 100%) <br/>
+                                &nbsp; &nbsp; : Figma + Kendo UI Library 활용한 디자인 구축작업, 스타일가이드, 상세페이지<br/>
+                                &nbsp; &nbsp; : 활용한 UI 소스 세팅, 컴포넌트 관리<br/>
+                                &nbsp; &nbsp; : SCSS, Utility Class 사용  <br/>
+                                •  특이사항 <br/>
+                                &nbsp; &nbsp; : 짧은 기간 내에 타 프로젝트의 템플릿 사용하여 콘텐츠 최적화<br/>
+                                &nbsp; &nbsp; : 다양한 UI 라이브러리 커스텀
+                                </p>
+                                <div className="tool">
+                                    Tools
+                                    <div className="icon">
+                                        <div className="figma"/>
+                                        <div className="git"/>
+                                        <div className="notion"/>
+                                        <div className="ps"/>
+                                        <div className="ai"/>
+                                        <div className="html"/>
+                                        <div className="css"/>
+                                        <div className="sass"/>
+                                        <div className="react"/>
+                                        <div className="ts"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="project">
+                                <p className="name"><img src={vizendImg}/> <p>(2024.01 ~ 2024.10)</p></p>
+                                <p className="summary">앱 모듈 구독 제작 시스템 </p>
+                                <p className="desc">
+                                •  업무 내용 (기여도 100%) <br/>
+                                &nbsp; &nbsp; : Figma + Mui Library 활용한 디자인 구축작업, 스타일가이드, 상세페이지 <br/>
+                                &nbsp; &nbsp; : 내부 서비스 로고 작업 (약 20개) <br/>
+                                &nbsp; &nbsp; : React + Mui의 유료 템플릿 이용, 템플릿 가이드에 맞춰서 UI 재세팅 <br/>
+                                &nbsp; &nbsp; : CSS in JS 사용 <br/>
+                                &nbsp; &nbsp; : Chart.js, Ag-Grid 커스텀 <br/>
+                                •  특이사항  <br/>
+                                &nbsp; &nbsp; : 유료 템플릿을 사용 <br/>
+                                &nbsp; &nbsp; (사용 템플릿 : <a href='https://mui.com/store/previews/minimal-dashboard/' target="_blank"> https://mui.com/store/previews/minimal-dashboard/ </a>) <br/>
+                                &nbsp; &nbsp; : 사용한 템플릿 전체 디자인 커스텀
+                                </p>
+                                <div className="tool">
+                                    Tools
+                                    <div className="icon">
+                                        <div className="figma"/>
+                                        <div className="git"/>
+                                        <div className="notion"/>
+                                        <div className="ps"/>
+                                        <div className="ai"/>
+                                        <div className="html"/>
+                                        <div className="css"/>
+                                        <div className="sass"/>
+                                        <div className="react"/>
+                                        <div className="ts"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="project">
+                                <p className="name"><img src={skImg}/> <p>(2022.09 ~ 2024.06)</p></p>
+                                <p className="summary">배터리 기술 직원 교육 LMS 웹 제작 </p>
+                                <p className="desc">
+                                •  업무 내용 (기여도 60%)<br/>
+                                &nbsp; &nbsp; : 신규페이지 및 수정 <br/>
+                                &nbsp; &nbsp; : React, Mui, Ag-Grid 활용, 추가 페이지 작업<br/>
+                                &nbsp; &nbsp; : 기타 이벤트 페이지, 및 메일 폼 작업<br/>
+                                •  특이사항 <br/>
+                                &nbsp; &nbsp; : 성적 및 채점 페이지 등 포멀하지 않은 페이지 작업<br/>
+                                &nbsp; &nbsp; : 개발계 원격 작업 지원
+                                </p>
                                 <div className="tool">
                                     Tools
                                     <div className="icon">
@@ -343,17 +409,190 @@ const Section5 = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div className="project">
+                                <p className="name"><img src={dongaImg}/> <p>(2023.05 ~ 2023.08)</p></p>
+                                <p className="summary">도서 구독 관리 서비스 </p>
+                                <p className="desc">
+                                •  업무 내용 (기여도 50%) <br/>
+                                &nbsp; &nbsp; : React 사용, Metronic 라이브러리 커스텀 <br/>
+                                •  특이사항  <br/>
+                                &nbsp; &nbsp; : 개발자가 UI까지 선작업 한 내용 검토 후 어색한 UI를 디자인 없이 바로 수정 <br/>
+                                &nbsp; &nbsp; : 작업자마다 className, 여백이나 글씨크기 등이 달라 규격화 및 정리
+                                </p>
+                                <div className="tool">
+                                    Tools
+                                    <div className="icon">
+                                        <div className="html"/>
+                                        <div className="css"/>
+                                        <div className="sass"/>
+                                        <div className="react"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="project">
+                                <p className="name"><img src={ndsImg}/> <p>(2023.06 ~ 2023.07)</p></p>
+                                <p className="summary">디자인 시스템 </p>
+                                <p className="desc">
+                                •  업무 내용 (기여도 100%) <br/>
+                                &nbsp; &nbsp; : Figma 스타일가이드, 컴포넌트 디자인 <br/>
+                                &nbsp; &nbsp; : 라이브러리 없이 UI 컴포넌트 구현<br/>
+                                &nbsp; &nbsp; : Github로 베타 테스트 사이트 관리 및 API 가이드 체계화<br/>
+                                &nbsp; &nbsp; 참고 링크 : <a target="_blank" href="https://nextreeui.github.io/nds-ui/">https://nextreeui.github.io/nds-ui/</a><br/>
+                                &nbsp; &nbsp; 참고고 링크 :  <a target="_blank" href="https://nextreeui.github.io/Mockup1/">https://nextreeui.github.io/Mockup1/</a><br/>
+                                •  특이사항 <br/>
+                                &nbsp; &nbsp; : 디자인과 퍼블리싱을 모두 책임지며, 처음부터 끝까지 프로젝트의 방향성을 주도적으로 결정하고 실행<br/>
+                                &nbsp; &nbsp; : 라이브러리를 활용하지 않고 UI 컴포넌트를 처음부터 설계하고 구현<br/>
+                                &nbsp; &nbsp; : 개발자가 커스터마이징 가능하게 설계
+
+                                </p>
+                                <div className="tool">
+                                    Tools
+                                    <div className="icon">
+                                        <div className="figma"/>
+                                        <div className="git"/>
+                                        <div className="html"/>
+                                        <div className="css"/>
+                                        <div className="sass"/>
+                                        <div className="react"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="project">
+                                <p className="name"><img src={asanImg}/> <p>(2023.02 ~ 2023.06)</p></p>
+                                <p className="summary">환자 교육 영상 웹 </p>
+                                <p className="desc">
+                                •  업무 내용 (기여도 100%) <br/>
+                                &nbsp; &nbsp; : 기존 페이지 뺴고 추가페이지만 새로 디자인 <br/>
+                                &nbsp; &nbsp; : 기존 사이트 프레임워크를 React로 변경하는 작업 <br/>
+                                •  특이사항  <br/>
+                                &nbsp; &nbsp;: 라이브러리 없이 모든 컴포넌트 순수 구현 <br/>
+                                &nbsp; &nbsp;: 추가 페이지는 기획자 없이 개발자와 의논해 바로 설계 및 디자인
+                                </p>
+                                <div className="tool">
+                                    Tools
+                                    <div className="icon">
+                                        <div className="figma"/>
+                                        <div className="git"/>
+                                        <div className="html"/>
+                                        <div className="css"/>
+                                        <div className="sass"/>
+                                        <div className="react"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="project">
+                                <p className="name"><img src={ajImg}/> <p>(2022.09 ~ 2022.12)</p></p>
+                                <p className="summary">영업지원 시스템 제작 </p>
+                                <p className="desc">
+                                •  업무 내용 (기여도 100%) <br/>
+                                &nbsp; &nbsp; : PPT 화면 설계서 작업, 컨텐츠 플로우 설정 <br/>
+                                &nbsp; &nbsp; : Figma 스타일가이드, UI 컴포넌트 관리 <br/>
+                                &nbsp; &nbsp; : React + Vite를 활용한 UI 소스 세팅, 컴포넌트 관리,  <br/>
+                                &nbsp; &nbsp; : Mui, Ag-Grid, Chart.js 등 라이브러리 커스텀 <br/>
+                                &nbsp; &nbsp; : SCSS, Utility Class 사용 <br/>
+                                •  특이사항  <br/>
+                                &nbsp; &nbsp; : 기획부터 디자인 퍼블리싱까지 작업 <br/>
+                                &nbsp; &nbsp; : 사이트 플로우를 화살표로 연결해나가면서, 기획 의도 명확히 표현
+                                </p>
+                                <div className="tool">
+                                    Tools
+                                    <div className="icon">
+                                        <div className="figma"/>
+                                        <div className="git"/>
+                                        <div className="html"/>
+                                        <div className="css"/>
+                                        <div className="sass"/>
+                                        <div className="react"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
-                    <div className="item">
-                        <div className="title">
-                            <div>넥스트리</div>
-                            <div>2022.09 ~ 2024.10</div>
-                        </div>
-                        <div className="contents">
-                            <p>웹 디자인 및 퍼블리싱</p>
-                            <p>웹 디자인 및 퍼블리싱</p>
-                            <p>웹 디자인 및 퍼블리싱</p>
+                    <div className="career-wrap">
+                        <div className="item">
+                            <div className="title">
+                                <div>넥스트리 (인턴) </div>
+                                <div>2년 2개월 : 2020.07 ~ 2022.08</div>
+                            </div>
+                            <div className="contents">
+                                <div className="project">
+                                    <p className="name"><img src={tourImg}/> <p>2021.09 ~ 2022.03</p></p>
+                                    <p className="summary">디지털 관광 콘텐츠 관리 웹 </p>
+                                    <p className="desc">
+                                    •  업무 내용 (기여도 30%) <br/>
+                                    &nbsp; &nbsp; : 상세 페이지 디자인 및 보조 <br/>
+                                    &nbsp; &nbsp; : 퍼블리싱 보조   <br/>
+                                    •  특이사항  <br/>
+                                    &nbsp; &nbsp; : 로고 변경 시 모든 페이지의 로고 반복 변경 작업 → 컴포넌트화 <br/>
+                                    &nbsp; &nbsp; : 포토샵 방식 → 오토레이아웃 사용 <br/>
+                                    &nbsp; &nbsp; : 비주얼 우선순위, 룩앤필, 톤앤매너 맞춰서 추가페이지 작업 <br/>
+                                    &nbsp; &nbsp; : SCSS @for, $변수, @minin 활용
+                                    </p>
+                                    <div className="tool">
+                                        Tools
+                                        <div className="icon">
+                                            <div className="figma"/>
+                                            <div className="git"/>
+                                            <div className="ps"/>
+                                            <div className="ai"/>
+                                            <div className="html"/>
+                                            <div className="css"/>
+                                            <div className="sass"/>
+                                            <div className="react"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="project">
+                                    <p className="name"><img src={nomadianImg}/> <p>2021.12 ~ 2022.01</p></p>
+                                    <p className="summary">재택근무 직원관리 서비스 </p>
+                                    <p className="desc">
+                                    •  업무 내용 (기여도 50%) <br/>
+                                    &nbsp; &nbsp; : Figma, 스타일가이드, 컴포넌트, 상세페이지<br/>
+                                    •  특이사항 <br/>
+                                    &nbsp; &nbsp; : 제로베이스 프로젝트에서 UI 설계 및 스타일가이드 정립<br/>
+                                    &nbsp; &nbsp; : 기획자 없이 디자인팀장이 직접 작성한 화면 설계서를 기반으로 작업 진행. 적극적 소통으로 설계 의도 파악 및 요구사항 반영
+                                    </p>
+                                    <div className="tool">
+                                        Tools
+                                        <div className="icon">
+                                            <div className="figma"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="project">
+                                    <p className="name"><img src={namoosoriImg}/> <p>2020.07 ~ 2024.10 </p></p>
+                                    <p className="summary">개발자 교육 영상 </p>
+                                    <p className="desc">
+                                    •  업무 내용 <br/>
+                                    &nbsp; &nbsp; 영상편집 (기여도 100%)  <br/>
+                                    &nbsp; &nbsp; : 내부 직원 교육 영상 편집 <br/>
+                                    &nbsp; &nbsp; : 인트로, 아웃트로 애니메이션 제작  <br/>
+                                    &nbsp; &nbsp; (툴 : Premiere Pro, After Effect, Clip Studio, Blender 3D) <br/>
+                                    &nbsp; &nbsp; 참고 링크 : https://www.youtube.com/@namoosori <br/>
+                                    &nbsp; &nbsp; 영상 일러스트 소스 제작 (기여도 100%) <br/>
+                                    &nbsp; &nbsp; : Clip Studio 툴을 이용하여, 액정 타블렛으로 일러스트 작업 <br/>
+                                    &nbsp; &nbsp; 유튜브 운영 (기여도 80%) <br/>
+                                    &nbsp; &nbsp; : 영상 썸네일 제작, 유튜브 페이지 배너 이미지 제작, 프로필 로고 제작 <br/>
+                                    •  특이사항  <br/>
+                                    &nbsp; &nbsp; : 편집 중 개발언어를 처음 접하여, 개발자와 교육 강사와 적극적 소통,  HTML, CSS, JS, 프레임워크, 라이브러리를 정확히 이해 후 영상 제작 <br/>
+                                    &nbsp; &nbsp; : 영상 클릭율을 높일 수 있도록 강하고 눈에 잘 띄는 썸네일 제작 <br/>
+                                    &nbsp; &nbsp; : 유튜브 배너, 로고 등 교육 브랜드 패키징
+                                    </p>
+                                    <div className="tool">
+                                        Tools
+                                        <div className="icon">
+                                            <div className="figma"/>
+                                            <div className="ps"/>
+                                            <div className="ai"/>
+                                            <div className="pr"/>
+                                            <div className="ae"/>
+                                            <div className="clip-studio"/>
+                                            <div className="blender"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

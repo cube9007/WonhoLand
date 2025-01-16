@@ -670,22 +670,49 @@ body {
                     flex-direction: column;
                     gap: 20px;
                     .project {
-                        padding: 20px 25px;
-                        border-radius: 20px;
+                        padding: 25px 25px;
+                        border-radius: 10px;
                         background-color: $primary_04p;
                         display: flex;
                         flex-direction: column;
                         gap: 10px;
+                        border: 2px solid transparent;
+                        transition: 0.5s;
+                        cursor: pointer;
+                        @media (max-width: 600px) {
+                            padding: 10px 0px 50px 0px;
+                            border-radius: 5px;
+                            background-color: transparent !important;
+                            border-bottom: 1px solid #ccc;
+                        }
+                        &:hover {
+                            background-color: white;
+                            border: 2px solid $primary;
+                        }
+                        @media (max-width: 600px) {
+                            &:hover {
+                                border: 2px solid transparent;
+                                border-bottom: 1px solid #ccc;
+                            }
+                        }
                         .name {
-                            font-size: var(--p4);
+                            font-size: var(--p5);
                             font-weight: 700;
+                            display: flex;
+                            align-items: start;
+                            justify-content: space-between;
+                        }
+                        .summary {
+                            font-size: var(--p5);
+                            font-weight: 700;
+                            color: black;
                         }
                         .desc {
                             font-size: var(--p5);
-                            font-weight: 300;
+                            font-weight: 400;
                             color: #333;
                             display: block;
-                            overflow: auto;
+                            word-break: break-all;
                             font-family: Pretendard;
                             line-height: 160%;
                         }
@@ -704,7 +731,6 @@ body {
                                 div {
                                     height: 30px;
                                     width: 30px;
-                                    background-color: white;
                                     border-radius: 5px;
                                 }
                                 .ps { @include image('ps.png'); }
