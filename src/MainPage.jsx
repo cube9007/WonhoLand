@@ -13,18 +13,41 @@ const Header = () => {
         } else {
             setScrolled(false);
         }
-        if (currentScroll > window.innerHeight * 1.3) {
+        if (currentScroll > window.innerHeight * 1.7) {
             setChanged(true);
         } else {
             setChanged(false);
         }
     });
 
+    const [menuOn, setMenuOn] = useState(false);
+    const menuClose = () => {
+        setMenuOn(false);
+    }
+    const menuOpen = () => {
+        setMenuOn(true);
+    }
+    useEffect(() => {
+        const backdrop = document.querySelector('.backdrop');
+        const body = document.querySelector('body');
+        if (menuOn) {
+            backdrop.style.display='block';
+            body.style.overflow = 'hidden';
+        } else {
+            backdrop.addEventListener('transitionend', () => {
+                backdrop.style.display='none';
+                body.style.overflow = 'auto';
+            });
+        }
+    }, [menuOn]);
     return (
         <div className={`header-wrap ${scrolled ? 'scrolled' : ''} ${changed ? 'changed' : ''}`}>
             <div className="header">
                 <Logo primary={changed}/>
-                <div className="menu">
+                <div className="btn-menu" onClick={menuOpen}/>
+                <div className={`backdrop ${menuOn ? 'open' : ''}`} onClick={menuClose}/>
+                <div className={`menu ${menuOn ? 'open' : ''}`}>
+                    <div className="btn-close" onClick={menuClose}/>
                     <p>PROJECT</p>
                     <p>VIDEO EDITING</p>
                     <p>2D & 3D</p>
@@ -94,9 +117,9 @@ const Section1 = () => {
                 sectionImg1.style.height = `${sectionScrollRatio * 1.1 * 1.748}vw`;
                 sectionImg2.style.maskSize = `${sectionScrollRatio * 1.1 }vw ${sectionScrollRatio * 1.1 *  1.748}vw`;
             } else {
-                sectionImg1.style.width = `${sectionScrollRatio / 1.748 * 2.33}vh`;
-                sectionImg1.style.height = `${sectionScrollRatio * 2.33}vh`;
-                sectionImg2.style.maskSize = `${sectionScrollRatio / 1.748 * 2.33}vh ${sectionScrollRatio * 2.33}vh`;
+                sectionImg1.style.width = `${sectionScrollRatio / 1.748 * 2.1}vh`;
+                sectionImg1.style.height = `${sectionScrollRatio * 2.1}vh`;
+                sectionImg2.style.maskSize = `${sectionScrollRatio / 1.748 * 2.1}vh ${sectionScrollRatio * 2.33}vh`;
             }
         }else if (currentScroll > window.innerHeight * 2) {
             if(window.innerWidth / window.innerHeight > 1.33) {
@@ -104,9 +127,9 @@ const Section1 = () => {
                 sectionImg1.style.height = `188vw`;
                 sectionImg2.style.maskSize = `110vw 188vw`;
             } else {
-                sectionImg1.style.width = 'calc(233 /1.748)vh';
-                sectionImg1.style.height = `233vh`;
-                sectionImg2.style.maskSize = `calc(233 /1.748)vh 233vh`;
+                sectionImg1.style.width = 'calc(210 /1.748)vh';
+                sectionImg1.style.height = `210vh`;
+                sectionImg2.style.maskSize = `calc(210 /1.748)vh 233vh`;
             }
         }
     });
@@ -140,7 +163,6 @@ const Section1 = () => {
     )
 }
 
-// 프로필 영역
 const Section2 = () => {
     return (
         <div className="section2-wrap">
@@ -175,6 +197,7 @@ const Section2 = () => {
                         브라우저라는 공간에 더 많은 가능성을 담기 위해, <br/>
                         <b>작은 코드가 모여 함께 더 큰 이야기를 <br className="lg-none md-none"/>완성하는 협업을 이어가고 싶습니다</b>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -182,13 +205,172 @@ const Section2 = () => {
 }
 
 const Section3 = () => {
+    const SkillItem = ({img, title, level, text}) => {
+        return (
+            <div className="item">
+                <div className={`skill-img ${img}`} />
+                <div className="skill-title">{title}</div>
+                <div className={`skill-level ${level}`}>
+                    <div/>
+                    <div/>
+                    <div/>
+                </div>
+                <div className="skill-text"> {text} </div>
+            </div>
+        )
+    }
     return (
         <div className="section3-wrap">
-
+            <div className="section3">
+                <b>Skills</b>
+                <div className="skill-wrap">
+                    <div>
+                        <b>Design Skills</b>
+                        <div className="skills">
+                            <SkillItem img='ps' title='Photoshop' level='level2' text='중' />
+                            <SkillItem img='ai' title='Photoshop' level='level2' text='중' />
+                            <SkillItem img='figma' title='Photoshop' level='' text='상' />
+                            <SkillItem img='pr' title='Photoshop' level='level2' text='중' />
+                            <SkillItem img='ae' title='Photoshop' level='level2' text='중' />
+                            <SkillItem img='blender' title='Photoshop' level='level2' text='중' />
+                            <SkillItem img='clip-studio' title='Photoshop' level='' text='상' />
+                        </div>
+                    </div>
+                    <div>
+                        <b>Publishing Skills</b>
+                        <div className="skills">
+                            <SkillItem img='html' title='HTML' level='' text='상' />
+                            <SkillItem img='css' title='CSS' level='' text='상' />
+                            <SkillItem img='sass' title='SASS' level='' text='상' />
+                            <SkillItem img='js' title='JS' level='' text='상' />
+                            <SkillItem img='react' title='React' level='level2' text='중' />
+                            <SkillItem img='ts' title='TypeScript' level='level2' text='중' />
+                            <SkillItem img='mui' title='UI Library' level='' text='상' />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
 
+const Section4 = () => {
+    return (
+        <div className="section4-wrap">
+            <div className="section4">
+                <b>Education</b>
+                <div className="education-wrap">
+                    <div className="title"> 
+                        <div> 2023 <div/> 상명대(천안) 산업디자인과 학사 졸업 </div>
+                        <p>학점 : 3.76</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+const Section5 = () => {
+    return (
+        <div className="section5-wrap">
+            <div className="section5">
+                <b>경력</b>
+                <div className="career-wrap">
+                    <div className="item">
+                        <div className="title">
+                            <div>넥스트리</div>
+                            <div>2년 2개월 : 2022.09 ~ 2024.10</div>
+                        </div>
+                        <div className="contents">
+                            <div className="project">
+                                <p className="name">삼성 E&A (2022.03 ~ 2024.10)</p>
+                                <pre className="desc">
+{`•  참여 프로젝트 : 세부 프로젝트 4개, 총 7개 사이트
+•  업무 내용 (기여도 75%)
+    : 신규페이지 및 수정
+    : Figma 스타일가이드, UI 컴포넌트 정리 
+    : Mui, Ag-Grid, Chart.js 등 라이브러리 커스텀
+    : SCSS, Utility Class 사용
+•  기여항목 
+    : 퍼블 적용이 안될 시 개발계 직접 접근 
+    : 고객이 원하는 형태의 UI 라이브러리가 없는 경우 직접 구현
+    (라이브러리 없이 캘린더 UI 구현 및 커스텀)`}
+                                </pre>
+                                <div className="tool">
+                                    Tools
+                                    <div className="icon">
+                                        <div className="figma"/>
+                                        <div className="git"/>
+                                        <div className="notion"/>
+                                        <div className="ps"/>
+                                        <div className="ai"/>
+                                        <div className="html"/>
+                                        <div className="css"/>
+                                        <div className="sass"/>
+                                        <div className="react"/>
+                                        <div className="ts"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="project">
+                                <p className="name">SK (2022.09 ~ 2024.06)</p>
+                                <pre className="desc">
+{`•  참여 프로젝트 : 세부 프로젝트 1개
+•  업무 내용 (기여도 60%)
+    : 신규페이지 및 수정 
+    : React, Mui, Ag-Grid 활용, 추가 페이지 작업
+    : 기타 이벤트 페이지, 및 메일 폼 작업
+•  기여항목 
+    : 성적 및 채점 페이지 등 포멀하지 않은 페이지 작업
+    : 개발계 원격 작업 지원
+•  사용 툴
+    커뮤니케이션 :  피그마, PPT, Git
+    디자인 : 피그마, 포토샵, 일러스트
+    퍼블리싱 : HTML, CSS, SCSS, React, TypeScript`}
+                                </pre>
+                                <div className="tool">
+                                    Tools
+                                    <div className="icon">
+                                        <div className="figma"/>
+                                        <div className="git"/>
+                                        <div className="ps"/>
+                                        <div className="ai"/>
+                                        <div className="html"/>
+                                        <div className="css"/>
+                                        <div className="sass"/>
+                                        <div className="react"/>
+                                        <div className="ts"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="item">
+                        <div className="title">
+                            <div>넥스트리</div>
+                            <div>2022.09 ~ 2024.10</div>
+                        </div>
+                        <div className="contents">
+                            <p>웹 디자인 및 퍼블리싱</p>
+                            <p>웹 디자인 및 퍼블리싱</p>
+                            <p>웹 디자인 및 퍼블리싱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+const Section6 = () => {
+    return (
+        <div className="section6-wrap">
+            <div className="section6">
+
+            </div>
+        </div>
+    )
+}
 
 const MainPage = () => {
     useEffect(() => {
@@ -240,9 +422,12 @@ const MainPage = () => {
         <div className='main'>
             <Header />
             <MainBanner />
-            <Section1 />
-            <Section2 />
-            <Section3 />
+            <Section1 />{/*  skill */}
+            <Section2 />{/*  about WONHO */}
+            <Section3 />{/*  Skill */}
+            <Section4 />{/*  Education */}
+            <Section5 />{/*  경력 */}
+            <Section6 />
         </div>
     )
 }

@@ -3,12 +3,15 @@ $primary : rgb(220, 49, 90);
 $primary_light: rgb(255, 195, 209);
 $primary_04p: rgb(254, 247, 249);
 $primary_dark: rgba(192, 32, 71, 1);
-
+$primary_darker: rgb(126, 17, 44);
+$primary_30p: rgb(245, 194, 206);
 $content-width: 1600px;
 
 :root {
     // color
     --primary_value : 220, 49, 90;
+    --primary_dark_value : 192, 32, 71;
+    --primary_darker_value : 126, 17, 44;
 
     // fontSize
     --h1: 6vw; //120px
@@ -22,6 +25,7 @@ $content-width: 1600px;
     --p3: 22px;
     --p4: 20px;
     --p5: 16px;
+    --p6: 12px;
 
     // padding
     --paddingX : 100px;
@@ -52,6 +56,8 @@ $content-width: 1600px;
         --p3: 20px;
         --p4: 18px;
         --p5: 14px;
+        --p6: 12px;
+
         // padding
         --paddingX : 50px;
         --stickyY: 100px;
@@ -80,7 +86,8 @@ $content-width: 1600px;
         --p3: 18px;
         --p4: 16px;
         --p5: 14px;
-        
+        --p6: 12px;
+
         // padding
         --paddingX : 20px;
         --stickyY: 70px;
